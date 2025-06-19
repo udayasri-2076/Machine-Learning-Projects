@@ -8,7 +8,7 @@ This machine learning project explores how advertising budgets across different 
 
 - `Ads vs Sales Prediction.ipynb` – Jupyter notebook with full analysis and ML pipeline
 - `advertising.csv` – Dataset containing ad spend vs sales data
-- `streamlit_app.py` – Web app to predict sales based on custom ad spend
+- `app.py` – Web app to predict sales based on custom ad spend
 - `README.md` – Project documentation
 
 ---
@@ -45,5 +45,5 @@ To run the app:
 
 ```bash
 Open Anaconda powershell prompt and add path to the file where you saved your streamlit code, you can write your streamlit code in pycharm or in notepad but u need to install pycharm for the code and then give instruction in the powershell prompt as given below.
-streamlit run streamlit_app.py
+streamlit run app.py
 
