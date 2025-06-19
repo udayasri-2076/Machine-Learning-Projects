@@ -8,7 +8,7 @@ This project uses a machine learning model to predict whether a tumor is **malig
 
 - `Breast cancer prediction.ipynb` – Jupyter notebook with data analysis, model training & evaluation  
 - `data.csv` – Breast cancer dataset used for the project  
-- `streamlit_app.py` – (optional) Streamlit web app for live predictions  
+- `breastcancer.py` – (optional) Streamlit web app for live predictions  
 - `README.md` – This file
 
 ---
@@ -52,5 +52,5 @@ The app allows users to:
 To run the app:
 
 ```bash
-streamlit run breast cancer.py
+streamlit run breastcancer.py
 
