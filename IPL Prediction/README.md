@@ -8,7 +8,7 @@ This project uses machine learning to predict the winning team in an IPL match b
 
 - `ipl prediction.ipynb` → Jupyter Notebook containing full data analysis and ML pipeline  
 - `IPL Matches 2008-2020.csv` → Dataset used for training  
-- `streamlit_app.py` → (optional) Interactive web app for real-time predictions  
+- `ipl.py` → (optional) Interactive web app for real-time predictions  
 - `README.md` → Project documentation
 
 ---
