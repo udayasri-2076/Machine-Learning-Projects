@@ -7,7 +7,7 @@ This machine learning project predicts whether a person is diabetic based on med
 
 - `Diabetes Prediction.ipynb` – Jupyter Notebook for full model building and evaluation
 - `diabetes.csv` – Input dataset used to train the model
-- `streamlit_app.py` – Web app for real-time diabetes prediction
+- `diabetesapp.py` – Web app for real-time diabetes prediction
 - `README.md` – This documentation
 
 
