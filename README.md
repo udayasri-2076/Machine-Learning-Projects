@@ -48,15 +48,13 @@ Welcome to my collection of hands-on **Machine Learning projects** built during 
 
 ##  How to Use
 
-1. Clone the repository:
 ```bash
+#1. Clone the repository:
 git clone https://github.com/udayasri-2076/Machine-Learning-Projects.git
 
-2.Open any project folder and run the notebook:
-```bash
+#2.Open any project folder and run the notebook:
 jupyter notebook
 
-3.To run Streamlit apps:
-```bash
+#3.To run Streamlit apps:
 streamlit run streamlit_app.py
 
