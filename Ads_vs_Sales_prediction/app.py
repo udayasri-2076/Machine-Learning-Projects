@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 import streamlit as st
 
 # Load the dataset
-sdf = pd.read_csv("D:\\MLProjects\\Datasets\\Advertising.csv")
+sdf = pd.read_csv("Advertising.csv")
 
 # Drop the unnecessary index column
 sdf = sdf.drop(columns=["Unnamed: 0"])
