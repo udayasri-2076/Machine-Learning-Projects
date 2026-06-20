@@ -1,4 +1,3 @@
-import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -12,14 +11,8 @@ st.set_page_config(page_title="Breast Cancer Predictor", layout="centered")
 st.title("🧬 Breast Cancer Prediction")
 st.markdown("This app uses Machine Learning to predict whether a tumor is **Benign** or **Malignant** based on medical data.")
 
-# --- FIX 1: PATH HANDLING ---
-# This ensures Streamlit finds the CSV right next to this script file inside your folder
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(BASE_DIR, "breast cancer.csv")
-
 # Load Data
-df = pd.read_csv(csv_path)
-
+df = pd.read_csv("D:\\MLProjects\\Datasets\\breast cancer.csv")
 if 'id' in df.columns:
     df = df.drop(['id'], axis=1)
 
@@ -40,23 +33,15 @@ acc = accuracy_score(y_test, model.predict(X_test))
 st.sidebar.header("Input Options")
 input_method = st.sidebar.radio("Choose Input Method", ["Use Random Test Data", "Enter Manually"])
 
-# --- FIX 2: PREDICT INDEXING ---
-# Function: Predict (Flattened array to handle manual vs random data shapes cleanly)
+# Function: Predict
 def predict(data):
-    pred_array = model.predict(data)
-    prediction = int(pred_array)
-    
-    probabilities = model.predict_proba(data).flatten()
-    proba = float(probabilities[prediction])
-    
-    return prediction, proba
+    prediction = model.predict(data)
+    proba = model.predict_proba(data)[0][prediction[0]]
+    return prediction[0], proba
 
-# Input Selection
+# Input
 if input_method == "Use Random Test Data":
-    # --- FIX 3: GUARANTEED ROW COUNT USING len() ---
-    # len(X_test) returns a pure integer directly, avoiding all tuple errors completely
-    max_index = len(X_test) - 1
-    random_index = st.sidebar.slider("Pick a sample index", 0, max_index)
+    random_index = st.sidebar.slider("Pick a sample index", 0, X_test.shape[0] - 1)
     input_data = X_test.iloc[random_index:random_index + 1]
     st.subheader("📊 Selected Test Sample Data")
     st.dataframe(input_data)
@@ -68,7 +53,7 @@ else:
         if i % 2 == 0:
             input_data[feature] = col1.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
         else:
-            input_data[feature] = col2.sidebar.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
+            input_data[feature] = col2.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
     input_data = pd.DataFrame([input_data])
 
 # Predict Button
