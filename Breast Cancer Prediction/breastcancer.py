@@ -12,7 +12,7 @@ st.title("🧬 Breast Cancer Prediction")
 st.markdown("This app uses Machine Learning to predict whether a tumor is **Benign** or **Malignant** based on medical data.")
 
 # Load Data
-df = pd.read_csv("D:\\MLProjects\\Datasets\\breast cancer.csv")
+df = pd.read_csv("breast cancer.csv")
 if 'id' in df.columns:
     df = df.drop(['id'], axis=1)
 
