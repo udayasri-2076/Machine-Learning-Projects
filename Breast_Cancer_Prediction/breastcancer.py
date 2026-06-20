@@ -12,8 +12,8 @@ st.set_page_config(page_title="Breast Cancer Predictor", layout="centered")
 st.title("🧬 Breast Cancer Prediction")
 st.markdown("This app uses Machine Learning to predict whether a tumor is **Benign** or **Malignant** based on medical data.")
 
-# --- FIXED PATH HANDLING ---
-# This ensures Streamlit finds the CSV right next to this script file
+# --- FIX 1: PATH HANDLING ---
+# This ensures Streamlit finds the CSV right next to this script file inside your folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, "breast cancer.csv")
 
@@ -40,16 +40,22 @@ acc = accuracy_score(y_test, model.predict(X_test))
 st.sidebar.header("Input Options")
 input_method = st.sidebar.radio("Choose Input Method", ["Use Random Test Data", "Enter Manually"])
 
-# Function: Predict (Fixed logic tracking confidence array matching the class prediction)
+# --- FIX 2: PREDICT INDEXING ---
+# Function: Predict (Flattened array to handle manual vs random data shapes cleanly)
 def predict(data):
-    prediction = model.predict(data)
-    probabilities = model.predict_proba(data)
-    proba = probabilities[prediction]
+    pred_array = model.predict(data)
+    prediction = int(pred_array)
+    
+    probabilities = model.predict_proba(data).flatten()
+    proba = float(probabilities[prediction])
+    
     return prediction, proba
 
 # Input Selection
 if input_method == "Use Random Test Data":
-    random_index = st.sidebar.slider("Pick a sample index", 0, X_test.shape - 1)
+    # --- FIX 3: TUPLE SUBTRACTION ERROR ---
+    # Using X_test.shape targets the rows count as an integer
+    random_index = st.sidebar.slider("Pick a sample index", 0, int(X_test.shape) - 1)
     input_data = X_test.iloc[random_index:random_index + 1]
     st.subheader("📊 Selected Test Sample Data")
     st.dataframe(input_data)
