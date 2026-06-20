@@ -12,7 +12,9 @@ st.title("🧬 Breast Cancer Prediction")
 st.markdown("This app uses Machine Learning to predict whether a tumor is **Benign** or **Malignant** based on medical data.")
 
 # Load Data
-df = pd.read_csv("breast cancer.csv")
+import os
+base_dir = os.path.dirname(__file__)
+df = pd.read_csv(os.path.join(base_dir, "breast cancer.csv"))
 if 'id' in df.columns:
     df = df.drop(['id'], axis=1)
 
