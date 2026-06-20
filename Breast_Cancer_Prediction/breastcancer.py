@@ -53,9 +53,9 @@ def predict(data):
 
 # Input Selection
 if input_method == "Use Random Test Data":
-    # --- FIX 3: CORRECTED SHAPE INDEXING ---
-    # X_test.shape explicitly pulls out the number of rows as a single integer
-    max_index = int(X_test.shape) - 1
+    # --- FIX 3: GUARANTEED ROW COUNT USING len() ---
+    # len(X_test) returns a pure integer directly, avoiding all tuple errors completely
+    max_index = len(X_test) - 1
     random_index = st.sidebar.slider("Pick a sample index", 0, max_index)
     input_data = X_test.iloc[random_index:random_index + 1]
     st.subheader("📊 Selected Test Sample Data")
@@ -68,7 +68,7 @@ else:
         if i % 2 == 0:
             input_data[feature] = col1.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
         else:
-            input_data[feature] = col2.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
+            input_data[feature] = col2.sidebar.slider(feature, float(X[feature].min()), float(X[feature].max()), float(X[feature].mean()))
     input_data = pd.DataFrame([input_data])
 
 # Predict Button
