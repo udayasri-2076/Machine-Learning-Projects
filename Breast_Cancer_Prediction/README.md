@@ -1,88 +1,87 @@
-Breast Cancer Prediction
+# Breast Cancer Prediction
 
-A Machine Learning project that predicts whether a tumor is Malignant (Cancerous) or Benign (Non-Cancerous) using medical diagnostic data. Built using Logistic Regression and deployed as an interactive Streamlit web application.
+A Machine Learning project that predicts whether a tumor is **Malignant (Cancerous)** or **Benign (Non-Cancerous)** using medical diagnostic data. Built using Logistic Regression and deployed as an interactive Streamlit web application.
 
-🚀 Live Demo
+## 🚀 Live Demo
 
-Streamlit App: Click here to try it
+**Streamlit App:**
+https://machine-learning-projects-juunphabldu7nv6rhzatqy.streamlit.app/
 
-📁 GitHub Repository
+## 📁 GitHub Repository
 
-github.com/udayasri-2076/Machine-Learning-Projects
+Repository:
+https://github.com/udayasri-2076/Machine-Learning-Projects
 
+---
 
-📌 Project Overview
+## 📌 Project Overview
 
 Early detection of breast cancer significantly improves treatment outcomes. This project uses the Breast Cancer Wisconsin Dataset to classify tumors as malignant or benign based on 30 medical diagnostic features.
 
+---
 
-📊 Dataset
+## 📊 Dataset
 
+* **Source:** Breast Cancer Wisconsin Dataset (`sklearn.datasets`)
+* **Samples:** 569
+* **Features:** 30 numerical features including `radius_mean`, `texture_mean`, `perimeter_mean`, `area_mean`, etc.
+* **Target:**
 
-Source: Breast Cancer Wisconsin Dataset (sklearn.datasets)
-Samples: 569
-Features: 30 numerical features including radius_mean, texture_mean, perimeter_mean, area_mean, etc.
-Target:
+  * `0` — Malignant (Cancerous)
+  * `1` — Benign (Non-Cancerous)
 
-0 — Malignant (Cancerous)
-1 — Benign (Non-Cancerous)
+---
 
+## 🛠️ Technologies Used
 
+* Python
+* Pandas
+* NumPy
+* Scikit-Learn
+* Streamlit
 
+---
 
+## ⚙️ ML Workflow
 
+### 1. Data Preprocessing
 
-🛠️ Technologies Used
+* Loaded dataset from `sklearn.datasets`
+* Converted to Pandas DataFrame
+* Checked for missing values
+* Standardized features using `StandardScaler`
 
+### 2. Model Building
 
-Python
-Pandas, NumPy
-Scikit-Learn
-Streamlit
+* Performed an 80/20 Train-Test Split
+* Trained a Logistic Regression classifier using Scikit-Learn
 
+### 3. Model Evaluation
 
+* Achieved **96%+ Accuracy**
+* Evaluated using:
 
-⚙️ ML Workflow
+  * Accuracy Score
+  * Confusion Matrix
+  * Classification Report
+* Tested on custom input data
 
-1. Data Preprocessing
+---
 
-
-Loaded dataset from sklearn.datasets
-Converted to pandas DataFrame
-Checked for missing values
-Normalized features using StandardScaler
-
-
-2. Model Building
-
-
-80/20 Train-Test Split
-Trained a Logistic Regression classifier using Scikit-Learn
-
-
-3. Model Evaluation
-
-
-Accuracy: 96%+
-Evaluated using accuracy score, confusion matrix, and classification report
-Tested on custom input data
-
-
-
-🌐 Streamlit App Features
+## 🌐 Streamlit App Features
 
 Users can:
 
+* Select a random test sample
+* Enter custom diagnostic values
+* Predict whether the tumor is Benign or Malignant
+* View prediction confidence percentage instantly
 
-Choose between random test sample or manual input
-Input 30 feature values using sliders
-Instantly get prediction: Benign or Malignant
-See confidence percentage of the prediction
+---
 
+## 📂 Project Structure
 
-
-📂 Project Structure
-
+```text
 Breast_Cancer_Prediction/
 │
 ├── breastcancer.py
@@ -90,11 +89,14 @@ Breast_Cancer_Prediction/
 ├── Breast cancer prediction.ipynb
 ├── requirements.txt
 └── README.md
+```
 
+---
 
-▶️ Run Locally
+## ▶️ Run Locally
 
-bash# Clone repository
+```bash
+# Clone repository
 git clone https://github.com/udayasri-2076/Machine-Learning-Projects.git
 
 # Navigate to project folder
@@ -105,12 +107,25 @@ pip install -r requirements.txt
 
 # Run Streamlit app
 streamlit run breastcancer.py
+```
 
+---
 
-👩‍💻 Author
+## 🎯 Key Learnings
 
-Udayasri Simma
+* Data Preprocessing and Feature Engineering
+* Logistic Regression Classification
+* Model Evaluation Techniques
+* Streamlit Application Development
+* GitHub Project Management
+* Cloud Deployment using Streamlit Community Cloud
 
+---
 
-GitHub: udayasri-2076
-LinkedIn: udayasrisimma
+## 👩‍💻 Author
+
+**Udayasri Simma**
+
+* GitHub: https://github.com/udayasri-2076
+* LinkedIn: https://www.linkedin.com/in/udayasrisimma-b0541b331
+
