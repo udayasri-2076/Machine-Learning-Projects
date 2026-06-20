@@ -53,9 +53,10 @@ def predict(data):
 
 # Input Selection
 if input_method == "Use Random Test Data":
-    # --- FIX 3: TUPLE SUBTRACTION ERROR ---
-    # Using X_test.shape targets the rows count as an integer
-    random_index = st.sidebar.slider("Pick a sample index", 0, int(X_test.shape) - 1)
+    # --- FIX 3: CORRECTED SHAPE INDEXING ---
+    # Specifying gets the row count integer safely before doing the subtraction
+    max_index = int(X_test.shape) - 1
+    random_index = st.sidebar.slider("Pick a sample index", 0, max_index)
     input_data = X_test.iloc[random_index:random_index + 1]
     st.subheader("📊 Selected Test Sample Data")
     st.dataframe(input_data)
