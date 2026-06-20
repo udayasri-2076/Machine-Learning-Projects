@@ -54,7 +54,7 @@ def predict(data):
 # Input Selection
 if input_method == "Use Random Test Data":
     # --- FIX 3: CORRECTED SHAPE INDEXING ---
-    # Specifying gets the row count integer safely before doing the subtraction
+    # X_test.shape explicitly pulls out the number of rows as a single integer
     max_index = int(X_test.shape) - 1
     random_index = st.sidebar.slider("Pick a sample index", 0, max_index)
     input_data = X_test.iloc[random_index:random_index + 1]
