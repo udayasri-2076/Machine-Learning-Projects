@@ -7,7 +7,8 @@ from sklearn.model_selection import train_test_split
 
 @st.cache_resource
 def train_model():
-    df = pd.read_csv('train.csv')
+    import os
+    df = pd.read_csv(os.path.join(os.path.dirname(__file__), 'train.csv'))
     
     df['Age'] = df['Age'].fillna(df['Age'].median())
     df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
