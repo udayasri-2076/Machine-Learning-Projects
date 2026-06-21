@@ -52,8 +52,9 @@ embarked = 0 if embarked == "S" else 1 if embarked == "C" else 2
 family_size = sibsp + parch + 1
 
 if st.button("Predict"):
+    is_alone = 1 if family_size == 1 else 0
     input_data = np.array([[pclass, sex, age, sibsp,
-                            parch, fare, embarked, family_size]])
+                            parch, fare, embarked, family_size, is_alone]])
     input_scaled = scaler.transform(input_data)
     prediction = model.predict(input_scaled)
     
