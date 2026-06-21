@@ -6,7 +6,7 @@ A Machine Learning web application that predicts whether a Titanic passenger wou
 ## 🚀 Live Demo
 
 **Streamlit App:**
-Add your deployed Streamlit link here
+https://machine-learning-projects-kkx3db2ndasus6cuaosx8e.streamlit.app/
 
 ## 📁 GitHub Repository
 
